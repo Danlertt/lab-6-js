@@ -10,7 +10,7 @@ You are encouraged to use the provided naming convention for ease of review.
 /* create variables to hold the values for modelName and duration */
 
 // INSERT YOUR CODE HERE
-let modelName = ""
+let modelName = "XYZ"
 let duration = 0
 
 
@@ -27,12 +27,14 @@ let duration = 0
 
 // INSERT YOUR CODE HERE
 function recacluate() {
-    let costLabel = document.getElementById('calculated-cost')
-
-
-
-
-    costLabel.textContent = 5000
+    const costLabel = document.getElementById('calculated-cost')
+    let total = 0
+    if (modelName === "XYZ") {
+        total = duration * 100
+    } else {
+        total = duration * 213
+    }
+    costLabel.textContent = total
 }
 
 
@@ -49,11 +51,21 @@ function recacluate() {
     - if modelName is currently "CPRG", change the value of modelName to "XYZ", and change the innerHTML of the model-text span element to "Model XYZ"
     - then, recalculate() the total cost.
 - finally, uncomment the following line of JavaScript to have this function run automatically whenever the pseudo-button is clicked: */
-    // modelButton.addEventListener("click", changeModel);
+modelButton.addEventListener("click", changeModel);
 
 // INSERT YOUR CODE HERE
 const switchButton = document.getElementById('model-button')
-
+function changeModel() {
+    const modelText = document.getElementById('model-text')
+    if (modelName === 'XYZ') {
+        modelName = 'CPRG'
+        modelText.textContent = 'Model CPRG'
+    } else {
+        modelName = 'XYZ'
+        modelText.textContent = 'Model XYZ'
+    }
+    recacluate()
+}
 
 
 
